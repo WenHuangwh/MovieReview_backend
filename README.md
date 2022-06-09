@@ -8,4 +8,4 @@ Project file tree:
 
 MongoDB:
 
-<img width="1432" alt="image" src="https://media.github.ccs.neu.edu/user/9360/files/ce65a2ba-9a59-4fe1-b4fa-5e8f28ab2f0c">
+<img width="1432" alt="image" src="https://media.github.ccs.neu.edu/user/9360/files/1617683f-07a0-47c3-a3dd-6a6bc9eff139">
