@@ -31,7 +31,39 @@ export default class ReviewsDAO {
         }
     }
 
-    static async updateReview(reviewId, userId, review, date) {}
+    static async updateReview(reviewId, userId, review, date) {
+        try {
+            const review_id = {
+                reviewId: ObjectId(reviewId),
+            }
+            const reviewDoc = {
+                $set: {
+                    user_id: userId,
+                    date: date,
+                    review: review
+                }
+            }
+            return await reviews.updateOne(review_id, reviewDoc, { upsert: true });
+        } catch (e) {
+            console.error(`Unable to update review: ${e}`);
+            return { error: e };
+        }
+    }
 
-    static async deleteReview(reviewId, userId) {}
+    static async deleteReview(reviewId, userId) {
+        try {
+            const review_id = {
+                reviewId: ObjectId(reviewId),
+            }
+            const user_id = {
+                $set: {
+                    user_id: userId,
+                }
+            }
+            return await reviews.deleteOne(review_id, user_id);
+        } catch (e) {
+            console.error(`Unable to update review: ${e}`);
+            return { error: e };
+        }
+    }
 }
