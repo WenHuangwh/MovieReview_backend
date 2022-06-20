@@ -13,6 +13,7 @@ async function main() {
     const port = process.env.PORT || 8000
 
     try {
+        // Connect to MongoDB server
         await client.connect();
         await MoviesDAO.injectDB(client);
         await ReviewsDAO.injectDB(client);

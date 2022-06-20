@@ -50,9 +50,12 @@ export default class ReviewsController {
             );
 
             var { error } = reviewResponse;
-            console.log(error);
-            if (error || reviewResponse.modifiedCount < 1) {
-                res.status(500).json({ error: "Unable to update review." });
+            if (error) {
+                res.status(500).json({ error });
+            }
+
+            if (reviewResponse.modifiedCount < 1) {
+                throw new Error("Unable to update review");
             } else {
                 res.json({ status: "success" });
             }
