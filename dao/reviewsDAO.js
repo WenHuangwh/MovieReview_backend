@@ -33,17 +33,8 @@ export default class ReviewsDAO {
 
     static async updateReview(reviewId, userId, review, date) {
         try {
-            const review_id = {
-                reviewId: ObjectId(reviewId),
-            }
-            const reviewDoc = {
-                $set: {
-                    user_id: userId,
-                    date: date,
-                    review: review
-                }
-            }
-            return await reviews.updateOne(review_id, reviewDoc, { upsert: true });
+            const updateResponse = await reviews.updateOne({ user_id: userId, _id: ObjectId(reviewId) }, { $set: { review: review, date: date } })
+            return updateResponse;
         } catch (e) {
             console.error(`Unable to update review: ${e}`);
             return { error: e };
@@ -52,15 +43,11 @@ export default class ReviewsDAO {
 
     static async deleteReview(reviewId, userId) {
         try {
-            const review_id = {
-                reviewId: ObjectId(reviewId),
-            }
-            const user_id = {
-                $set: {
-                    user_id: userId,
-                }
-            }
-            return await reviews.deleteOne(review_id, user_id);
+            const deleteResponse = await reviews.deleteOne({
+                _id: ObjectId(reviewId),
+                user_id: userId,
+            });
+            return deleteResponse;
         } catch (e) {
             console.error(`Unable to update review: ${e}`);
             return { error: e };
