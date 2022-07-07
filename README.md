@@ -25,3 +25,6 @@ Delete:
 <img width="1280" alt="image" src="https://media.github.ccs.neu.edu/user/9360/files/433790b4-72f5-4739-9f5d-bf894c818334">
 <img width="1432" alt="image" src="https://media.github.ccs.neu.edu/user/9360/files/88d05477-6db7-47c1-a38c-c51ed76fcbcf">
 
+HW6:
+
+<img width="1432" alt="image" src="https://media.github.ccs.neu.edu/user/9360/files/22b653d1-9f3d-45ab-bab8-6fdec319e5b1">
