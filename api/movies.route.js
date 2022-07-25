@@ -2,6 +2,7 @@ import express from 'express';
 import MoviesController from './movies.controller.js';
 import ReviewsController from './reviews.controller.js';
 import FavoritesController from './favorites.controller.js';
+// import MyfavController from './myfav.controller.js';
 
 const router = express.Router();
 
@@ -20,5 +21,13 @@ router
 router
     .route("/favorites/:userId")
     .get(FavoritesController.apiGetFavorites);
+
+// router
+//     .route("/myfav")
+//     .put(MyfavController.apiUpdateMyfav);
+
+// router
+//     .route("/myfav/:userId")
+//     .get(MyfavController.apiGetMyfav);
 
 export default router;
